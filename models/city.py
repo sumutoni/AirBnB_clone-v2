@@ -3,8 +3,6 @@
 from models.base_model import BaseModel, Base, Column, String
 from sqlalchemy import ForeignKey
 
-Base = declarative_base()
-
 
 class City(BaseModel, Base):
     """ The city class, contains state ID and name """
