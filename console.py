@@ -117,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
         attrib = dict(k.split('=') for k in args)
         for k,v in attrib.items():
             if "\"" in v:
-                attrib[k] = v.replace("\"", "\\"")
+                attrib[k] = v.replace("\"", "\"")
             elif " " in v:
                 attrib[k] = v.replace(" ", "_")
             elif "." in v:
