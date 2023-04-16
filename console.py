@@ -142,6 +142,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 attrib = convert(args[1:])
                 new_instance = HBNBCommand.classes[args[0]](**attrib)
+                new_instance.save()
         storage.save()
         print(new_instance.id)
         storage.save()
