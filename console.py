@@ -119,6 +119,8 @@ class HBNBCommand(cmd.Cmd):
         for k, v in attrib.items():
             if " " in v:
                 attrib[k] = v.replace(" ", "_")
+            elif "\"" in v:
+                attrib[k] = v.replace("\"", "")
             elif "." in v:
                 attrib[k] = float(v)
             else:
