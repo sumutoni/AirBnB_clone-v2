@@ -6,6 +6,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import ForeignKey
 
 Base = declarative_base()
+
+
 class City(BaseModel, Base):
     """ The city class, contains state ID and name """
     __tablename__ = "cities"
