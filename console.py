@@ -113,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
         """ Overrides the emptyline method of CMD """
         pass
 
-    def convert(args):
+    def convert(self, args):
         """ Convert argument list to dictionary"""
         attrib = dict(k.split('=') for k in args)
         for k, v in attrib.items():
