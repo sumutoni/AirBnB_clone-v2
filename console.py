@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
                 pline = pline[2].strip()  # pline is now str
                 if pline:
                     # check for *args or **kwargs
-                    if pline[0] is '{' and pline[-1] is'}'\
+                    if pline[0] is '{' and pline[-1] is '}'\
                             and type(eval(pline)) is dict:
                         _args = pline
                     else:
@@ -112,10 +112,11 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """ Overrides the emptyline method of CMD """
         pass
+
     def convert(args):
         """ Convert argument list to dictionary"""
         attrib = dict(k.split('=') for k in args)
-        for k,v in attrib.items():
+        for k, v in attrib.items():
             if "\"" in v:
                 attrib[k] = v.replace("\"", "\"")
             elif " " in v:
@@ -125,6 +126,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 attrib[k] = int(v)
         return attrib
+
     def do_create(self, args):
         """ Create an object of any class"""
         if not args:
@@ -139,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
                 new_instance.save()
             else:
                 attrib = convert(args[1:])
-                new_instance =  HBNBCommand.classes[args[0]](**attrib)
+                new_instance = HBNBCommand.classes[args[0]](**attrib)
         storage.save()
         print(new_instance.id)
         storage.save()
@@ -337,6 +339,7 @@ class HBNBCommand(cmd.Cmd):
         """ Help information for the update class """
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
